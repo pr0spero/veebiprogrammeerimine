@@ -5,33 +5,31 @@ $myFamilyName = "J";
 
 $hourNow = date("H");
 
-#Use $hourNow value to decide what time of day it is using if statements
+#ajaga seotud muutujad
 
 $schoolDayStart = date("d.m.Y") ."". "8.15";
 
+#strtotime, lisab aja sekundites alates jaanuarist 1970 00:00:00 GMT mingi antud ajahetkeni, now paneb hetkeaja
 $schoolBegin = strtotime($schoolDayStart);
 $timeNow = strtotime("now");
 
-echo $schoolBegin;
+#arvutused
+$minutesPassed = round(($timeNow - $schoolBegin) / 60);
+$hoursPassed = round($minutesPassed / 60 , 2);
 
-echo $timeNow;
+echo "<p>" . "It has been " . $minutesPassed . " minutes or " . $hoursPassed . " hours since school started." . "</p>";
 
-$minutesPassed = round(($timenow - $schoolBegin) / 60);
-
-
-
+#if laused
 $partOfDay = "";
 if ($hourNow < 8) {
 	$partOfDay = "early morning";
 } 
-if ($hourNow >= 8 and $hourNow < 16) {
+elseif ($hourNow >= 8 and $hourNow < 16) {
 	$partOfDay = "school hours";
 }
-if ($hourNow >= 16) {
-	$partOfDay = "free time";
+else {
+	$partOfDay = "idle time";
 }
-
-
 
 
 ?>
@@ -42,7 +40,7 @@ if ($hourNow >= 16) {
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>no title</title>
+	<title>Here is the title</title>
 </head>
 <body>
 <br>
@@ -51,6 +49,7 @@ if ($hourNow >= 16) {
 	echo $myName . " " . $myFamilyName;
 	?>
 	</h1>
+
 	<!--<p>üääöõäüöüõäööüõäöõäöüõäöüõäö</p>-->
 
 	<?php
