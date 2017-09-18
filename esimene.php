@@ -3,6 +3,15 @@
 $myName = "S";
 $myFamilyName = "J";
 
+#kuu nimed eesti keeles
+$monthNamesEt = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
+#var_dump($monthNamesEt);
+#echo $monthNamesEt[3];
+
+$monthNow = $monthNamesEt[date("n") - 1];
+
+#echo $monthNow;
+
 $hourNow = date("H");
 
 #ajaga seotud muutujad
@@ -80,7 +89,7 @@ if (isset($_POST["birthYear"]) and $_POST["birthYear"] != 0) {
 	<?php
 	echo "<p>First php message<p>";
 	echo "<p>Today is ";
-	echo date("d.m.Y") . " and it's " . $partOfDay;
+	echo date("d ") . $monthNow . date(" Y") . " and it's " . $partOfDay;
 	echo ".<p>";
 	echo "<p>It was " .date("H:i:s"). " when this page was opened.<p>";
 	?>
@@ -103,8 +112,8 @@ if (isset($_POST["birthYear"]) and $_POST["birthYear"] != 0) {
 	}
 	?>
 	
+<!--	
 	<p> Or other way around: </p>
-	
 	<ul>
 		<?php
 		for ($i = $yearNow; $i >= $myBirthYear; $i = $i - 1) {
@@ -112,7 +121,8 @@ if (isset($_POST["birthYear"]) and $_POST["birthYear"] != 0) {
 		}
 		?>
 	</ul>
-	
+-->
+
 </body>	
 </html>
 
